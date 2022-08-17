@@ -1,6 +1,8 @@
 var resposta = window.document.getElementById("resposta")
 var botao = window.document.getElementById("botao")
 var terminal = window.document.getElementById("txterminal")
+var senha = window.document.getElementById("senha")
+var pendrive = window.document.getElementById("pendrive")
 
 var escolha1 = window.document.getElementById("oquehouve")
 var escolha2 = window.document.getElementById("oquefazer")
@@ -13,6 +15,7 @@ escolha2.addEventListener("click", sescolha)
 escolha3.addEventListener("click", tescolha)
 
 botao.addEventListener("click", verificar)
+senha.addEventListener("keyup", password)
 
 var i1 = 0;
 var i2 = 0;
@@ -21,11 +24,15 @@ var i4 = 0;
 
 var speed = 50;
 
-var txt1 = 'Não sei. Sou apenas um site, mas pelo acesso ao banco de dados, ocorreu um ataque a toda internet. Poucos dados foram salvos. Eles atacaram por meios desconhecidos até o momento, mas pelo o que parece, não foi apenas um virus ou acesso a contas Administradoras, foi algo bem pior...';
+var txt1 = "Não sei. Sou * apenas um site, mas pelo acesso ao banco de dados, ocorreu um ataque a toda internet. Poucos dados foram salvos. Eles atacaram por meios desconhecidos até o momento, mas pelo o que parece, não foi apenas um virus ou acesso a contas Administradoras, foi algo bem pior...";
 
 var txt2 = 'Você pode dar comandos no terminal e tentar acessar os dados restantes, talvez tenha algo que possa usar para descobrir mais a respeito do que houve'
 
 var txt3 = 'Você está em uma casa isolada, longe da cidade, o ano é de 2045 pelo o que parece você não lembra de estar nesta casa antes'
+
+var txt4 = "Erro_404 * Erro_404 * Banco de dados * Erro_404 * Arquivos"
+
+var txt5 = "Usuarios: Jonh, Daniel, Merlinz, Carlos, <br> <br> Senhas: 128901923"
 
 
 function digitação1() {
@@ -33,12 +40,12 @@ function digitação1() {
     teste.style.display = "block"
 
     if (i1 < txt1.length) {
-        teste.innerHTML += txt1.charAt(i1);
+            teste.innerHTML += txt1.charAt(i1);
+        }
         i1++;
         setTimeout(digitação1, speed);
     }
 
-}
 
 function digitação2() {
 
@@ -67,15 +74,17 @@ function digitação3() {
 
 function digitação4() {
 
-
-
-   /* if (i4 < txt4) {
-       txt4.innerHTML += txt4.charAt(i4);
-       i4++;
-       setTimeout(digitação4, speed);
-    }
-    */
+    if(txt4.charAt(i4) == "*"){
+        terminal.innerHTML += "<br>"
+        }else {
+            if (i4 < txt4.length) {
+                terminal.innerHTML += txt4.charAt(i4)
+            }
+        }
+        i4++
+        setTimeout(digitação4, speed);
 }
+
 
 
 
@@ -133,6 +142,15 @@ function verificar() {
     if(resposta.value == "/help") {
         digitação4()
     }
+    if(resposta.value == "/banco de dados") {
+        terminal.innerHTML = txt5
+    }
+}
 
+function password() {
+
+    if(senha.value == 128901923) {
+        alert("senha correta")
+    }
 }
 
