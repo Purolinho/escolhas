@@ -5,6 +5,9 @@ var senha = window.document.getElementById("senha")
 var arrastar = window.document.getElementById("arrastar")
 var banker = window.document.getElementById("banker")
 var inventario= window.document.getElementById("inventario")
+var imagemdoinventario = window.document.getElementById("imagemdoinventario")
+var itemdoinventario1 = window.document.getElementById("itemdoinventario1")
+var infoitem1 = window.document.getElementById("infoitem1")
 
 var escolha1 = window.document.getElementById("oquehouve")
 var escolha2 = window.document.getElementById("oquefazer")
@@ -18,10 +21,14 @@ escolha3.addEventListener("click", tescolha)
 
 botao.addEventListener("click", verificar)
 senha.addEventListener("keyup", password)
-pendrive.addEventListener("click", info)
-inventario.addEventListener("click", itens)
+pendrive.addEventListener("click", pegarpendrive)
+imagemdoinventario.addEventListener("click", fechareabririnventario)
+itemdoinventario1.addEventListener("click", informações1)
 
+
+let contadordainfo1 = 0
 let contadordoinventario = 0
+var itens = []
 
 var senhadocofre = Math.floor(Math.random(0)*100000)
 
@@ -30,6 +37,7 @@ var i2 = 0;
 var i3 = 0;
 var i4 = 0;
 var i5 = 0;
+var i6 = 0;
 
 var speed = 50;
 
@@ -42,6 +50,8 @@ var txt3 = 'Você está em uma casa isolada, longe da cidade, o ano é de 2045 p
 var txt4 = "Erro_404 * Erro_404 * Banco de dados * Erro_404 * Arquivos"
 
 var txt5 = "Usuarios: Jonh, Daniel, Merlinz, Carlos * Senhas: " + senhadocofre
+
+var txt6 = "Um pendrive com backup, provavelmente tem informações uteis"
 
 function digitação1() {
 
@@ -112,6 +122,19 @@ function digitação5() {
         }
         i5++
         setTimeout(digitação5, speed);
+}
+
+function digitação6() {
+
+    if(txt6.charAt(i6) == "*"){
+        infoitem1.innerHTML += "<br>"
+        }else {
+            if (i6 < txt6.length) {
+                infoitem1.innerHTML += txt6.charAt(i6)
+            }
+        }
+        i6++
+        setTimeout(digitação6, speed);
 }
 
 
@@ -189,19 +212,37 @@ function verificar() {
 
 function password() {
 
-    if(senha.value == senhadocofre) {
+    if(senha.value == 1) {
         banker.style.display = "none"
     }
 }
 
-function info() {
+function pegarpendrive() {
+    itens.push("pendrive")
+    window.document.getElementById("itemdoinventario1").style.display = "block"
+    window.document.getElementById("itemdoinventario1").style.cursor = "pointer"
     window.document.getElementById("papel").style.display = "none"
 }
 
-function itens() {
+function fechareabririnventario() {
     if(++contadordoinventario % 2 == 0) {
         inventario.style.left = "0%"
     } else {   
-        inventario.style.left = "25%"
+        inventario.style.left = "-31.6%"
+    }
+}
+
+function informações1() {
+    i6 = 0
+    infoitem1.innerHTML = ""
+    if(contadordainfo1 % 2 == 0) {
+        infoitem1.style.display = "block"
+        infoitem1.style.opacity = "100%"
+        digitação6()
+        contadordainfo1++
+    } else {
+        infoitem1.style.display = "none"
+        infoitem1.opacity = "0%"
+        contadordainfo1++
     }
 }

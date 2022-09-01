@@ -148,7 +148,7 @@ ul li::before {
     text-align: center;
     font-size: 180%;
     margin: 0% 0% 0% 0%;
-    padding: 20% 21% 0% 20%;
+    padding: 13% 16% 0% 18%;
     border-radius: 6px;
 }
 
@@ -171,23 +171,43 @@ ul li::before {
 #banker {
     position: fixed;
     background-color: grey;
-    margin: -3% 0% 0% -6%;
+    margin: -3.7% 0% 0% -6.9%;
     border-radius: 10px;
     
 }
 
 #inventario {
     position: fixed;
-    margin: 24% 0% 0% 65%;
-    width: 35%;
+    margin: 24% 0% 0% 87%;
+    width: 45%;
     height: 12%;
     background-image: linear-gradient(to right, black, #080926);
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     transition: 1.5s;
+    left: 0%;
 }
+
+#itemdoinventario1 {
+    display: none;
+    margin: -14.3% 0% 0% 32%;
+}
+#infoitem1 {
+    text-align: center;
+    background-color: rgba(70, 70, 255, 0.212);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 18%;
+    position: fixed;
+    margin: -14% 0% 0% 7%;
+    border-radius: 20px;
+    padding: 0.5%;
+    opacity: 0%;
+    
+}
+
+
 #imagemdoinventario {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     cursor: pointer;
-    transition: 1.5s;
 }
